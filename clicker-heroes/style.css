@@ -1,0 +1,23 @@
+body {
+
+  font-size: 175%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: aqua;
+  background-color: crimson;
+  text-align: center;
+}
+
+br {
+  display: block;
+}
+
+#dev {
+  font-size: 100%;
+}
+
+#cImg {
+  text-align: center;
+}
+
+
+
