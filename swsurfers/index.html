@@ -1,70 +1,87 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="UTF_8">
-    <title></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link rel="stylesheet" href="estilo.css">
-    <link rel="stylesheet" media="screen and (max-width:768px)" href="mobile.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Game</title>
 </head>
-
+<script src="script.js"></script>
 <body>
-    <div class="header">
-        <div class="logo">
-            <img src="img/Logo-Subway.svg" />
+    <marquee><h1>Subway Surfers Lite</h1><i>By Bilal</i></marquee>
+    <br>
+        <div id="game">
+            <div id="left"></div>
+            <div id="right"></div>
+            <div id="block"></div>
+            <div id="character"></div>
         </div>
-        <div class="navs">
-            <a href="#">Inicio</a>
-            <a href="#">Sobre</a>
-            <a href="#">Suporte</a>
-        </div>
-    </div>
 
-    <section>
-        <img src="img/jake.svg " />
-        <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path fill="#ffff" fill-opacity="1" d="M0,320L1440,96L1440,320L0,320Z"></path>
-        </svg>
-    </section>
+        <script>
+            function moveLeft(){
+    
+                let left =parseInt(window.getComputedStyle(character)
+                .getPropertyValue("left"));
+                left-=100;
+                if(left>=0)
+                {
+                    character.style.left=left+'px';
+            
+                }
+            }
+            function moveRight(){
+                
+                let left =parseInt(window.getComputedStyle(character)
+                .getPropertyValue("left"));
+                left+=100;
+            
+                if(left<300)
+                {
+                    character.style.left=left+'px';
+            
+                }
+            }
+            
+            document.addEventListener("keydown",event=>{
+            
+                if(event.key=="ArrowLeft"){moveLeft();}
+                if(event.key=="ArrowRight"){moveRight();}
+                
+            });
+            
+            var block = document.getElementById("block");
+            var counter=0;
+            block.addEventListener('animationiteration',function()
+            {
+            
+                var random=Math.floor(Math.random() * 3);//returns num from 0-2
+                left = random*100;
+                block.style.left=left+'px';
+                counter+=1;
 
-    <div class="corpo">
-        <h1>Sobre o Jogo:</h1>
-        <p>Subway Surfers é um jogo eletrônico de corrida interminável co-desenvolvido pela Kiloo Games, uma empresa
-            privada com sede na Dinamarca e pela Sybo Games</p>
+            });
 
-        <h1>Como é jogo:</h1>
-        <p>O objetivo dos jogadores é levar o personagem de Subway Surfers o mais longe possível correndo pelos trilhos
-            de trens. E, para isso, ele precisa desviar dos obstáculos que aparecem aleatoriamente no caminho e nos
-            vagões e locomotivas.</p>
+            setInterval(function(){
 
-        <h1>O jogo tem fim:</h1>
-        <p>Não há final no game. O objetivo dos jogadores é levar o personagem de Subway Surfers o mais longe possível
-            correndo pelos trilhos de trens.</p>
-    </div>
-    <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path fill="#ffff" fill-opacity="1" d="M0,0L1440,224L1440,0L0,0Z"></path>
-    </svg>
+                var characterLeft = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
+                var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
 
+                var blockTop = parseInt(window.getComputedStyle(block).getPropertyValue("top"));
+                
+                if(characterLeft==blockLeft && blockTop<500 && blockTop>300)
+                    {
+                        alert("GAME OVER!  Score: "+counter+"\n Developed By: Bilal");
+                        block.style.animation="none";
+                        location.reload();
+                    }
 
-    <div class="corpo-fim">
-        <img src="img/tricky.png" />
+            },1)
 
-        <h1>Acesse já:</h1>
-
-        <a
-            href="https://play.google.com/store/apps/details?id=com.kiloo.subwaysurf&gl=us">https://play.google.com/store/apps/details?id=com.kiloo.subwaysurf&gl=us</a>
-    </div>
-
-    <div class="rodape">
-        <p>Landing Page do Subway Surfers | Criado por: Enzo Rafael dos Passos</p>
-
-    </div>
+            document.getElementById("left").addEventListener("touchstart",moveLeft);
+            document.getElementById("right").addEventListener("touchstart",moveRight);
+            
+        </script>
 </body>
-
 </html>
