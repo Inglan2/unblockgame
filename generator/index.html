@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Generator</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Code Generator</h1>
+      <form action="col s12" onsubmit="generate()">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="url" class="validate" required autofocus type="url" />
+            <label for="url">URL</label>
+          </div>
+          <button
+            class="green right btn waves-effect waves-light pulse"
+            type="submit"
+            name="action"
+          >
+            Generate Code<i class="material-icons left">code</i>
+          </button>
+        </div>
+      </form>
+    </div>
+    <script>
+      var code;
+      fetch("./code.html")
+        .then((x) => x.text())
+        .then((y) => (code = y));
+
+      function generate() {
+        event.preventDefault();
+        navigator.clipboard.writeText(
+          code.replaceAll("URLHERE", document.getElementById("url").value)
+        );
+        M.toast({ html: "Copied Code", classes: "rounded green" });
+        document.getElementById("url").value = "";
+      }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
+</html>
