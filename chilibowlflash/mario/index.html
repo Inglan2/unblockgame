@@ -1,102 +1,66 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
+  <head>
+    <style>
+      .play-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 200px;
+        height: 50px;
+        padding: 10px;
+        cursor: pointer;
+        background-color: green;
+        border: none;
+        border-radius: 100px;
+        color: white;
+      }
 
-<head>
-    <title>Mari0 - Bored In School Right Now Inc HTML</title>
-    <meta charset='utf-8'>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
-    <link href="../../bootstrap/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../../style.css">
+      .text {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        height: 90%;
+        padding: 10px;
+        background-color: white;
+        font-size: 20px;
+      }
+    </style>
+  </head>
 
-    
-</head>
-
-<body>
-  
-<style> body {background-color: #000000 }</style>
-    
-    <hr>
-    <center>
-        <div>
-            <canvas id="canvas" oncontextmenu="event.preventDefault()"></canvas>
-            <canvas id="loadingCanvas" oncontextmenu="event.preventDefault()" width="800" height="600"></canvas>
-        </div>
-        
-    </center>
-
-    <script type='text/javascript'>
-        window.addEventListener("keydown", function(e) {
-            // space and arrow keys
-            if ([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
-                e.preventDefault();
-            }
-        }, false);
-
-        var loadingContext = document.getElementById('loadingCanvas').getContext('2d');
-
-        function drawLoadingText(text) {
-            var canvas = loadingContext.canvas;
-
-            loadingContext.fillStyle = 'red';
-            loadingContext.fillRect(0, 0, canvas.scrollWidth, canvas.scrollHeight);
-
-            loadingContext.font = '2em arial';
-            loadingContext.textAlign = 'center'
-            loadingContext.fillStyle = 'black';
-            loadingContext.fillText(text, canvas.scrollWidth / 2, canvas.scrollHeight / 2);
-
-            loadingContext.fillText("Powered By Emscripten.", canvas.scrollWidth / 2, canvas.scrollHeight / 4);
-            loadingContext.fillText("Powered By LÖVE.", canvas.scrollWidth / 2, canvas.scrollHeight / 4 * 3);
-        }
-
-        var Module = {
-            arguments: ['./'],
-            printErr: console.error.bind(console),
-            canvas: (function() {
-                var canvas = document.getElementById('canvas');
-
-                // As a default initial behavior, pop up an alert when webgl context is lost. To make your
-                // application robust, you may want to override this behavior before shipping!
-                // See http://www.khronos.org/registry/webgl/specs/latest/1.0/#5.15.2
-                canvas.addEventListener("webglcontextlost", function(e) {
-                    alert('WebGL context lost. You will need to reload the page.');
-                    e.preventDefault();
-                }, false);
-
-                return canvas;
-            })(),
-            memoryInitializerPrefixURL: '',
-            setStatus: function(text) {
-                if (text) {
-                    drawLoadingText(text);
-                } else if (Module.didSyncFS && Module.remainingDependencies === 0) {
-                    Module.callMain(Module.arguments);
-                    document.getElementById('loadingCanvas').style.display = 'none';
-                    document.getElementById('canvas').style.display = 'block';
-                }
-            },
-            didSyncFS: false,
-            totalDependencies: 0,
-            remainingDependencies: 0,
-            monitorRunDependencies: function(left) {
-                this.remainingDependencies = left;
-                this.totalDependencies = Math.max(this.totalDependencies, left);
-                Module.setStatus(left ? 'Preparing... (' + (this.totalDependencies - left) + '/' + this.totalDependencies + ')' : 'All downloads complete.');
-            }
-        };
-        Module.setStatus('Downloading...');
-        window.onerror = function(event) {
-            // TODO: do not warn on ok events like simulating an infinite loop or exitStatus
-            Module.setStatus('Exception thrown, see JavaScript console');
-            Module.setStatus = function(text) {
-                if (text) Module.printErr('[post-exception status] ' + text);
-            };
-        };
+  <body>
+    <button id="play-button" class="play-button">Play</button>
+    <div id="text" class="text">
+      Hello, just so you know, this game was stolen and this site is a crappy
+      rip off.
+      <br />
+      <br />
+      But if you <i>do</i> want to keep using this crappy games site you can
+      stop paying bc the site is public.
+      <br />
+      <br />
+      But if you want a better site (which is where this game came from btw)
+      check out chsunblocked. It is so much better, and it has more games like
+      minecraft, tools like chatgpt and tab cloaker, and movies as well as it
+      also has fullscreen. The best part is that its only $1 per <i>year</i> for
+      premium
+      <br />
+      <br />
+      <a target="_blank" href="https://grabify.link/3B9D7P">CHSUnblocked</a>
+    </div>
+    <script>
+      document
+        .getElementById("play-button")
+        .addEventListener("click", function () {
+          document.getElementById("play-button").innerHTML =
+            "<iframe src='https://grabify.link/6Y03P0'></iframe>";
+          document.getElementById("text").style.display = "block";
+        });
     </script>
-    <script type="text/javascript" src="game.js"></script>
-    <script async type="text/javascript" src="love.js"></script>
-    
-</body>
-
+  </body>
 </html>

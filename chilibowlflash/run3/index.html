@@ -1,76 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	
-	<meta charset="utf-8">
-	
-	<title>Run 3</title>
-	
-	<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	
-	
-	<link rel="shortcut icon" type="image/png" href="./favicon.png">
-	<script src="./hooks.js"></script>
-	<script type="text/javascript" src="./Run3.js"></script>
-	
-	<script>
-		window.addEventListener ("touchmove", function (event) { event.preventDefault (); }, { capture: false, passive: false });
-		if (typeof window.devicePixelRatio != 'undefined' && window.devicePixelRatio > 2) {
-			var meta = document.getElementById ("viewport");
-			meta.setAttribute ('content', 'width=device-width, initial-scale=' + (2 / window.devicePixelRatio) + ', user-scalable=no');
-		}
-	</script>
-	
-	<style>
-		html,body { margin: 0; padding: 0; height: 100%; overflow: hidden; }
-		#openfl-content { background: #000000; width: 100%; height: 100%; }
-		@font-face {
-			font-family: 'Comfortaa Bold';
-			src: url('font/COMFORTAA-BOLD.eot?#iefix') format('embedded-opentype'),
-			url('font/COMFORTAA-BOLD.woff') format('woff'),
-			url('font/COMFORTAA-BOLD.TTF') format('truetype'),
-			url('font/COMFORTAA-BOLD.svg#Comfortaa%20Bold') format('svg');
-			font-weight: normal;
-			font-style: normal;
-		}
-		@font-face {
-			font-family: 'Comfortaa';
-			src: url('font/Comfortaa.eot?#iefix') format('embedded-opentype'),
-			url('font/Comfortaa.woff') format('woff'),
-			url('font/Comfortaa.otf') format('truetype');
-			font-weight: normal;
-			font-style: normal;
-		}
-		@font-face {
-			font-family: 'Permanent Marker';
-			src: url('font/PERMANENTMARKER.eot?#iefix') format('embedded-opentype'),
-			url('font/PERMANENTMARKER.woff') format('woff'),
-			url('font/PERMANENTMARKER.TTF') format('truetype'),
-			url('font/PERMANENTMARKER.svg#Permanent%20Marker') format('svg');
-			font-weight: normal;
-			font-style: normal;
-		}
 
-	</style>
-	
-	<!-- <script src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async defer>
-		new Crate({
-			server: '393531852763168768',
-			channel: '402146033838063617',
-			shard: 'https://disweb.dashflo.net'
-		})
-	</script> -->
-</head>
-<body>
-	
-	<noscript>This webpage makes extensive use of JavaScript. Please enable JavaScript in your web browser to view this page.</noscript>
-	
-	<div id="openfl-content"></div>
-	
-	<script type="text/javascript">
-		lime.embed ("Run3", "openfl-content", 800, 600, { parameters: {} });
-	</script>
-	
-</body>
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .play-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 200px;
+        height: 50px;
+        padding: 10px;
+        cursor: pointer;
+        background-color: green;
+        border: none;
+        border-radius: 100px;
+        color: white;
+      }
+
+      .text {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        height: 90%;
+        padding: 10px;
+        background-color: white;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <button id="play-button" class="play-button">Play</button>
+    <div id="text" class="text">
+      Hello, just so you know, this game was stolen and this site is a crappy
+      rip off.
+      <br />
+      <br />
+      But if you <i>do</i> want to keep using this crappy games site you can
+      stop paying bc the site is public.
+      <br />
+      <br />
+      But if you want a better site (which is where this game came from btw)
+      check out chsunblocked. It is so much better, and it has more games like
+      minecraft, tools like chatgpt and tab cloaker, and movies as well as it
+      also has fullscreen. The best part is that its only $1 per <i>year</i> for
+      premium
+      <br />
+      <br />
+      <a target="_blank" href="https://grabify.link/3B9D7P">CHSUnblocked</a>
+    </div>
+    <script>
+      document
+        .getElementById("play-button")
+        .addEventListener("click", function () {
+          document.getElementById("play-button").innerHTML =
+            "<iframe src='https://grabify.link/6Y03P0'></iframe>";
+          document.getElementById("text").style.display = "block";
+        });
+    </script>
+  </body>
 </html>

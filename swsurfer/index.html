@@ -1,87 +1,66 @@
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+  <head>
+    <style>
+      .play-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 200px;
+        height: 50px;
+        padding: 10px;
+        cursor: pointer;
+        background-color: green;
+        border: none;
+        border-radius: 100px;
+        color: white;
+      }
 
-    <link rel="stylesheet" href="styles.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Game</title>
-</head>
-<script src="script.js"></script>
-<body>
-    <marquee><h1>Subway Surfers Lite</h1><i>By Bilal</i></marquee>
-    <br>
-        <div id="game">
-            <div id="left"></div>
-            <div id="right"></div>
-            <div id="block"></div>
-            <div id="character"></div>
-        </div>
+      .text {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        height: 90%;
+        padding: 10px;
+        background-color: white;
+        font-size: 20px;
+      }
+    </style>
+  </head>
 
-        <script>
-            function moveLeft(){
-    
-                let left =parseInt(window.getComputedStyle(character)
-                .getPropertyValue("left"));
-                left-=100;
-                if(left>=0)
-                {
-                    character.style.left=left+'px';
-            
-                }
-            }
-            function moveRight(){
-                
-                let left =parseInt(window.getComputedStyle(character)
-                .getPropertyValue("left"));
-                left+=100;
-            
-                if(left<300)
-                {
-                    character.style.left=left+'px';
-            
-                }
-            }
-            
-            document.addEventListener("keydown",event=>{
-            
-                if(event.key=="ArrowLeft"){moveLeft();}
-                if(event.key=="ArrowRight"){moveRight();}
-                
-            });
-            
-            var block = document.getElementById("block");
-            var counter=0;
-            block.addEventListener('animationiteration',function()
-            {
-            
-                var random=Math.floor(Math.random() * 3);//returns num from 0-2
-                left = random*100;
-                block.style.left=left+'px';
-                counter+=1;
-
-            });
-
-            setInterval(function(){
-
-                var characterLeft = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
-                var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
-
-                var blockTop = parseInt(window.getComputedStyle(block).getPropertyValue("top"));
-                
-                if(characterLeft==blockLeft && blockTop<500 && blockTop>300)
-                    {
-                        alert("GAME OVER!  Score: "+counter+"\n Developed By: Bilal");
-                        block.style.animation="none";
-                        location.reload();
-                    }
-
-            },1)
-
-            document.getElementById("left").addEventListener("touchstart",moveLeft);
-            document.getElementById("right").addEventListener("touchstart",moveRight);
-            
-        </script>
-</body>
+  <body>
+    <button id="play-button" class="play-button">Play</button>
+    <div id="text" class="text">
+      Hello, just so you know, this game was stolen and this site is a crappy
+      rip off.
+      <br />
+      <br />
+      But if you <i>do</i> want to keep using this crappy games site you can
+      stop paying bc the site is public.
+      <br />
+      <br />
+      But if you want a better site (which is where this game came from btw)
+      check out chsunblocked. It is so much better, and it has more games like
+      minecraft, tools like chatgpt and tab cloaker, and movies as well as it
+      also has fullscreen. The best part is that its only $1 per <i>year</i> for
+      premium
+      <br />
+      <br />
+      <a target="_blank" href="https://grabify.link/3B9D7P">CHSUnblocked</a>
+    </div>
+    <script>
+      document
+        .getElementById("play-button")
+        .addEventListener("click", function () {
+          document.getElementById("play-button").innerHTML =
+            "<iframe src='https://grabify.link/6Y03P0'></iframe>";
+          document.getElementById("text").style.display = "block";
+        });
+    </script>
+  </body>
 </html>

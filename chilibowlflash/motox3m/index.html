@@ -1,89 +1,66 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
+  <head>
+    <style>
+      .play-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 200px;
+        height: 50px;
+        padding: 10px;
+        cursor: pointer;
+        background-color: green;
+        border: none;
+        border-radius: 100px;
+        color: white;
+      }
 
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
-    <link rel="stylesheet" href="assets/css/app.css" type="text/css" />
-    <title>
-        MotoX3M
-    </title>
+      .text {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        height: 90%;
+        padding: 10px;
+        background-color: white;
+        font-size: 20px;
+      }
+    </style>
+  </head>
 
-</head>
-
-<body>
-    <div id="content"></div>
-    <div id="orientation"></div>
-    <div id="loader">Loading ...</div>
-    <script type="text/javascript" src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
-    <script type="text/javascript" src="assets/box2dweb/nape.min.js">
-        var nape = "nape.min.js";
-    </script>
-    <script type="text/javascript" src="assets/box2dweb/nape-debug-draw.min.js"></script>
-    <script type="text/javascript" src="assets/box2dweb/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="assets/box2dweb/easeljs-0.8.2.combined.js"></script>
-    <script type="text/javascript" src="assets/box2dweb/bluebird.min.js"></script>
-
-
-    <script type="text/javascript">
-        var notIE11 = (typeof(Event) === 'function');
-
-        window["GD_OPTIONS"] = {
-            "gameId": "5b0abd4c0faa4f5eb190a9a16d5a1b4c",
-            "onEvent": function(event) {
-                switch (event.name) {
-                    case "SDK_GAME_START":
-                        // advertisement done, resume game logic and unmute audio
-                        var event;
-                        if (notIE11) {
-                            event = new Event("SDK_GAME_START");
-                        } else {
-                            event = document.createEvent('Event');
-                            event.initEvent('SDK_GAME_START', true, true);
-                        }
-                        document.getElementById("content").dispatchEvent(event);
-                        break;
-                    case "SDK_GAME_PAUSE":
-                        // pause game logic / mute audio
-                        var event;
-                        if (notIE11) {
-                            event = new Event("SDK_GAME_PAUSE");
-                        } else {
-                            event = document.createEvent('Event');
-                            event.initEvent('SDK_GAME_PAUSE', true, true);
-                        }
-                        document.getElementById("content").dispatchEvent(event);
-                        break;
-                    case "SDK_GDPR_TRACKING":
-                        // this event is triggered when your user doesn't want to be tracked
-                        console.log("SDK_GDPR_TRACKING");
-                        break;
-                    case "SDK_GDPR_TARGETING":
-                        // this event is triggered when your user doesn't want personalised targeting of ads and such
-                        console.log("SDK_GDPR_TARGETING");
-                        break;
-                    case "SDK_READY":
-                        // this event is triggered when your user doesn't want personalised targeting of ads and such
-                        console.log("SDK_READY");
-                        break;
-                }
-            },
-        };
-    </script>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-60415712-15"></script>
+  <body>
+    <button id="play-button" class="play-button">Play</button>
+    <div id="text" class="text">
+      Hello, just so you know, this game was stolen and this site is a crappy
+      rip off.
+      <br />
+      <br />
+      But if you <i>do</i> want to keep using this crappy games site you can
+      stop paying bc the site is public.
+      <br />
+      <br />
+      But if you want a better site (which is where this game came from btw)
+      check out chsunblocked. It is so much better, and it has more games like
+      minecraft, tools like chatgpt and tab cloaker, and movies as well as it
+      also has fullscreen. The best part is that its only $1 per <i>year</i> for
+      premium
+      <br />
+      <br />
+      <a target="_blank" href="https://grabify.link/3B9D7P">CHSUnblocked</a>
+    </div>
     <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', 'UA-60415712-15');
+      document
+        .getElementById("play-button")
+        .addEventListener("click", function () {
+          document.getElementById("play-button").innerHTML =
+            "<iframe src='https://grabify.link/6Y03P0'></iframe>";
+          document.getElementById("text").style.display = "block";
+        });
     </script>
-    <script type="text/javascript" src="motox3m4.min.js?30ce0fae5b364628ca27"></script>
-</body>
-
+  </body>
 </html>
